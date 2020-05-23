@@ -82,6 +82,13 @@ export const fr = new Chrono( options.mergeOptions([
 export const ja = new Chrono( options.mergeOptions([
     options.ja.casual, options.en, options.commonPostProcessing]));
 
+export const zh = new Chrono(options.mergeOptions([
+    options.zh.casual, options.zh, options.commonPostProcessing,
+]));
+
+export const zhcn = new Chrono(options.mergeOptions([
+    options.zhcn.casual, options.zhcn, options.commonPostProcessing
+]));
 
 export function parse () {
     return casual.parse.apply(casual, arguments);

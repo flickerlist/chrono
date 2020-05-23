@@ -2,7 +2,7 @@ const dayjs = require('dayjs');
 var Parser = require('../parser').Parser;
 var ParsedResult = require('../../result').ParsedResult;
 
-var util = require('../../utils/ZH-Hant.js');
+var util = require('../../utils/ZH.js');
 
 var PATTERN = new RegExp(
     '(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+|半|幾)(?:\\s*)' +

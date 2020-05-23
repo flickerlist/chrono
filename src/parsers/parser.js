@@ -122,6 +122,12 @@ exports.ZHHantTimeExpressionParser = require('./zh-Hant/ZHHantTimeExpressionPars
 exports.ZHHantCasualDateParser = require('./zh-Hant/ZHHantCasualDateParser').Parser;
 exports.ZHHantDeadlineFormatParser = require('./zh-Hant/ZHHantDeadlineFormatParser').Parser;
 
+exports.ZHHansDateParser = require('./zh-Hans/ZHHansDateParser').Parser;
+exports.ZHHansWeekdayParser = require('./zh-Hans/ZHHansWeekdayParser').Parser;
+exports.ZHHansTimeExpressionParser = require('./zh-Hans/ZHHansTimeExpressionParser').Parser;
+exports.ZHHansCasualDateParser = require('./zh-Hans/ZHHansCasualDateParser').Parser;
+exports.ZHHansDeadlineFormatParser = require('./zh-Hans/ZHHansDeadlineFormatParser').Parser;
+
 exports.DEDeadlineFormatParser = require('./de/DEDeadlineFormatParser').Parser;
 exports.DEMonthNameLittleEndianParser = require('./de/DEMonthNameLittleEndianParser').Parser;
 exports.DEMonthNameParser = require('./de/DEMonthNameParser').Parser;

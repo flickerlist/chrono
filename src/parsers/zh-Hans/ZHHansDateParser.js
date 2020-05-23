@@ -7,22 +7,22 @@ var util = require('../../utils/ZH.js');
 var PATTERN = new RegExp(
     '(\\d{2,4}|[' + Object.keys(util.NUMBER).join('') + ']{2,4})?' +
     '(?:\\s*)' +
-    '(?:年)?' +
-    '(?:[\\s|,|，]*)' +
+    '(?:年|-|/)?' +
+    '(?:\\s*)' +
     '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})' +
     '(?:\\s*)' +
-    '(?:月)' +
+    '(?:月|-|/)?' +
     '(?:\\s*)' +
     '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})?' +
     '(?:\\s*)' +
-    '(?:日|號)?'
+    '(?:日|号)?'
 );
 
 var YEAR_GROUP = 1;
 var MONTH_GROUP = 2;
 var DAY_GROUP = 3;
 
-exports.Parser = function ZHHantDateParser() {
+exports.Parser = function ZHHansDateParser() {
 
     Parser.apply(this, arguments);
 
@@ -61,7 +61,7 @@ exports.Parser = function ZHHantDateParser() {
             result.start.imply('year', startMoment.year());
         }
 
-        result.tags.ZHHantDateParser = true;
+        result.tags.ZHHansDateParser = true;
         return result;
     };
 };
