@@ -89,7 +89,7 @@ export function casualOption() {
 
 // -------------------------------------------------------------
 
-export const de = function(config) {
+export const de = function de(config) {
     return {
         parsers: [
             new parser.DEDeadlineFormatParser(config),
@@ -121,7 +121,7 @@ de.casual = function() {
 
 // -------------------------------------------------------------
 
-export const nl = function(config) {
+export const nl = function nl(config) {
     return {
         parsers: [
             new parser.NLMonthNameLittleEndianParser(config),
@@ -153,7 +153,7 @@ nl.casual = function() {
 // -------------------------------------------------------------
 
 
-export const en = function(config) {
+export const en = function en(config) {
     return {
         parsers: [
             new parser.ENISOFormatParser(config),
@@ -194,7 +194,7 @@ en.casual = function(config) {
 };
 
 
-export const en_GB = function(config) {
+export const en_GB = function en_GB(config) {
     config = config || {};
     config.littleEndian = true;
     return en(config);
@@ -208,7 +208,7 @@ en_GB.casual = function(config) {
 
 // -------------------------------------------------------------
 
-export const ja = function() {
+export const ja = function ja() {
     return {
         parsers: [
             new parser.JPStandardParser()
@@ -230,7 +230,7 @@ ja.casual = function() {
 // -------------------------------------------------------------
 
 
-export const pt = function(config) {
+export const pt = function pt(config) {
     return {
         parsers: [
             new parser.PTTimeAgoFormatParser(config),
@@ -259,7 +259,7 @@ pt.casual = function() {
 // -------------------------------------------------------------
 
 
-export const es = function(config) {
+export const es = function es(config) {
     return {
         parsers: [
             new parser.ESTimeAgoFormatParser(config),
@@ -288,7 +288,7 @@ es.casual = function() {
 
 // -------------------------------------------------------------
 
-export const fr = function(config) {
+export const fr = function fr(config) {
     return {
         parsers: [
             new parser.FRDeadlineFormatParser(config),
@@ -320,7 +320,7 @@ fr.casual = function() {
 
 // -------------------------------------------------------------
 
-export const zh = function(config) {
+export const zh = function zh(config) {
     return {
         parsers: [
             new parser.ZHHantDateParser(config),
@@ -342,7 +342,7 @@ zh.casual = function() {
     });
 }
 
-export const zhcn = function(config) {
+export const zhcn = function zhcn(config) {
     return {
         parsers: [
             new parser.ZHHansDateParser(config),
