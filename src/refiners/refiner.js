@@ -5,7 +5,7 @@ exports.Refiner = function Refiner() {
 }
 
 exports.Filter = function Filter() {
-    Refiner.call(this);
+    exports.Refiner.call(this);
 
     this.isValid = function(text, result, opt) { return true; }
     this.refine = function(text, results, opt) {

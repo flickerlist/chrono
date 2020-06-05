@@ -180,4 +180,9 @@ test("Test - Random date + time expression", function() {
         expect(result.text).toBe(text);
         expect(result.start.get('hour')).toBe(12);
     });
+
+    testSingleCase(chrono, '下午4點', (result, text) => {
+        expect(result.text).toBe(text);
+        expect(result.start.get('hour')).toBe(16);
+    });
 });
