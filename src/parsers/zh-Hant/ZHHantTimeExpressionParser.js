@@ -77,18 +77,18 @@ exports.Parser = function ZHHantTimeExpressionParser() {
             if (day1 == '明' || day1 == '聽') {
               // Check not "Tomorrow" on late night
               if(refMoment.hour() > 1) {
-                  startMoment.add(1, 'day');
+                startMoment = startMoment.add(1, 'day');
               }
             } else if (day1 == '昨' || day1 == '尋' || day1 == '琴') {
-                startMoment.add(-1, 'day');
+                startMoment = startMoment.add(-1, 'day');
             } else if (day1 == "前"){
-                startMoment.add(-2, 'day');
+                startMoment = startMoment.add(-2, 'day');
             } else if (day1 == "大前"){
-                startMoment.add(-3, 'day');
+                startMoment = startMoment.add(-3, 'day');
             } else if (day1 == "後"){
-                startMoment.add(2, 'day');
+                startMoment = startMoment.add(2, 'day');
             } else if (day1 == "大後"){
-                startMoment.add(3, 'day');
+                startMoment = startMoment.add(3, 'day');
             }
             result.start.assign('day', startMoment.date());
             result.start.assign('month', startMoment.month() + 1);
@@ -96,17 +96,17 @@ exports.Parser = function ZHHantTimeExpressionParser() {
         } else if (match[DAY_GROUP_3]) {
             var day3 = match[DAY_GROUP_3];
             if (day3 == '明' || day3 == '聽') {
-                startMoment.add(1, 'day');
+                startMoment = startMoment.add(1, 'day');
             } else if (day3 == '昨' || day3 == '尋' || day3 == '琴') {
-                startMoment.add(-1, 'day');
+                startMoment = startMoment.add(-1, 'day');
             } else if (day3 == "前"){
-                startMoment.add(-2, 'day');
+                startMoment = startMoment.add(-2, 'day');
             } else if (day3 == "大前"){
-                startMoment.add(-3, 'day');
+                startMoment = startMoment.add(-3, 'day');
             } else if (day3 == "後"){
-                startMoment.add(2, 'day');
+                startMoment = startMoment.add(2, 'day');
             } else if (day3 == "大後"){
-                startMoment.add(3, 'day');
+                startMoment = startMoment.add(3, 'day');
             }
             result.start.assign('day', startMoment.date());
             result.start.assign('month', startMoment.month() + 1);
@@ -244,18 +244,18 @@ exports.Parser = function ZHHantTimeExpressionParser() {
             if (day1 == '明' || day1 == '聽') {
               // Check not "Tomorrow" on late night
               if(refMoment.hour() > 1) {
-                  endMoment.add(1, 'day');
+                endMoment = endMoment.add(1, 'day');
               }
             } else if (day1 == '昨' || day1 == '尋' || day1 == '琴') {
-                endMoment.add(-1, 'day');
+                endMoment = endMoment.add(-1, 'day');
             } else if (day1 == "前"){
-                endMoment.add(-2, 'day');
+                endMoment = endMoment.add(-2, 'day');
             } else if (day1 == "大前"){
-                endMoment.add(-3, 'day');
+                endMoment = endMoment.add(-3, 'day');
             } else if (day1 == "後"){
-                endMoment.add(2, 'day');
+                endMoment = endMoment.add(2, 'day');
             } else if (day1 == "大後"){
-                endMoment.add(3, 'day');
+                endMoment = endMoment.add(3, 'day');
             }
             result.end.assign('day', endMoment.date());
             result.end.assign('month', endMoment.month() + 1);
@@ -263,17 +263,17 @@ exports.Parser = function ZHHantTimeExpressionParser() {
         } else if (match[DAY_GROUP_3]) {
             var day3 = match[DAY_GROUP_3];
             if (day3 == '明' || day3 == '聽') {
-                endMoment.add(1, 'day');
+                endMoment = endMoment.add(1, 'day');
             } else if (day3 == '昨' || day3 == '尋' || day3 == '琴') {
-                endMoment.add(-1, 'day');
+                endMoment = endMoment.add(-1, 'day');
             } else if (day3 == "前"){
-                endMoment.add(-2, 'day');
+                endMoment = endMoment.add(-2, 'day');
             } else if (day3 == "大前"){
-                endMoment.add(-3, 'day');
+                endMoment = endMoment.add(-3, 'day');
             } else if (day3 == "後"){
-                endMoment.add(2, 'day');
+                endMoment = endMoment.add(2, 'day');
             } else if (day3 == "大後"){
-                endMoment.add(3, 'day');
+                endMoment = endMoment.add(3, 'day');
             }
             result.end.assign('day', endMoment.date());
             result.end.assign('month', endMoment.month() + 1);

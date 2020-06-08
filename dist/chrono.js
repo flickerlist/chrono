@@ -5580,18 +5580,18 @@ exports.Parser = function ZHHantTimeExpressionParser() {
       if (day1 == '明' || day1 == '聽') {
         // Check not "Tomorrow" on late night
         if (refMoment.hour() > 1) {
-          startMoment.add(1, 'day');
+          startMoment = startMoment.add(1, 'day');
         }
       } else if (day1 == '昨' || day1 == '尋' || day1 == '琴') {
-        startMoment.add(-1, 'day');
+        startMoment = startMoment.add(-1, 'day');
       } else if (day1 == "前") {
-        startMoment.add(-2, 'day');
+        startMoment = startMoment.add(-2, 'day');
       } else if (day1 == "大前") {
-        startMoment.add(-3, 'day');
+        startMoment = startMoment.add(-3, 'day');
       } else if (day1 == "後") {
-        startMoment.add(2, 'day');
+        startMoment = startMoment.add(2, 'day');
       } else if (day1 == "大後") {
-        startMoment.add(3, 'day');
+        startMoment = startMoment.add(3, 'day');
       }
 
       result.start.assign('day', startMoment.date());
@@ -5601,17 +5601,17 @@ exports.Parser = function ZHHantTimeExpressionParser() {
       var day3 = match[DAY_GROUP_3];
 
       if (day3 == '明' || day3 == '聽') {
-        startMoment.add(1, 'day');
+        startMoment = startMoment.add(1, 'day');
       } else if (day3 == '昨' || day3 == '尋' || day3 == '琴') {
-        startMoment.add(-1, 'day');
+        startMoment = startMoment.add(-1, 'day');
       } else if (day3 == "前") {
-        startMoment.add(-2, 'day');
+        startMoment = startMoment.add(-2, 'day');
       } else if (day3 == "大前") {
-        startMoment.add(-3, 'day');
+        startMoment = startMoment.add(-3, 'day');
       } else if (day3 == "後") {
-        startMoment.add(2, 'day');
+        startMoment = startMoment.add(2, 'day');
       } else if (day3 == "大後") {
-        startMoment.add(3, 'day');
+        startMoment = startMoment.add(3, 'day');
       }
 
       result.start.assign('day', startMoment.date());
@@ -5759,18 +5759,18 @@ exports.Parser = function ZHHantTimeExpressionParser() {
       if (day1 == '明' || day1 == '聽') {
         // Check not "Tomorrow" on late night
         if (refMoment.hour() > 1) {
-          endMoment.add(1, 'day');
+          endMoment = endMoment.add(1, 'day');
         }
       } else if (day1 == '昨' || day1 == '尋' || day1 == '琴') {
-        endMoment.add(-1, 'day');
+        endMoment = endMoment.add(-1, 'day');
       } else if (day1 == "前") {
-        endMoment.add(-2, 'day');
+        endMoment = endMoment.add(-2, 'day');
       } else if (day1 == "大前") {
-        endMoment.add(-3, 'day');
+        endMoment = endMoment.add(-3, 'day');
       } else if (day1 == "後") {
-        endMoment.add(2, 'day');
+        endMoment = endMoment.add(2, 'day');
       } else if (day1 == "大後") {
-        endMoment.add(3, 'day');
+        endMoment = endMoment.add(3, 'day');
       }
 
       result.end.assign('day', endMoment.date());
@@ -5780,17 +5780,17 @@ exports.Parser = function ZHHantTimeExpressionParser() {
       var day3 = match[DAY_GROUP_3];
 
       if (day3 == '明' || day3 == '聽') {
-        endMoment.add(1, 'day');
+        endMoment = endMoment.add(1, 'day');
       } else if (day3 == '昨' || day3 == '尋' || day3 == '琴') {
-        endMoment.add(-1, 'day');
+        endMoment = endMoment.add(-1, 'day');
       } else if (day3 == "前") {
-        endMoment.add(-2, 'day');
+        endMoment = endMoment.add(-2, 'day');
       } else if (day3 == "大前") {
-        endMoment.add(-3, 'day');
+        endMoment = endMoment.add(-3, 'day');
       } else if (day3 == "後") {
-        endMoment.add(2, 'day');
+        endMoment = endMoment.add(2, 'day');
       } else if (day3 == "大後") {
-        endMoment.add(3, 'day');
+        endMoment = endMoment.add(3, 'day');
       }
 
       result.end.assign('day', endMoment.date());
@@ -6292,8 +6292,8 @@ var ParsedComponents = __webpack_require__(1).ParsedComponents;
 
 var util = __webpack_require__(5);
 
-var patternString1 = '(?:由|从|自)?' + '(?:' + '(今|明|前|大前|后|大后|昨)(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s,，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?' + ')?' + '(?:[\\s,，]*)' + '(?:(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)(?:\\s*)(?:点|时|:|：)' + '(?:\\s*)' + '(\\d+|半|正|整|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:分|:|：)?' + '(?:\\s*)' + '(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:秒)?)' + '(?:\\s*(A\.M\.|P\.M\.|AM?|PM?))?';
-var patternString2 = '(?:\\s*(?:到|至|\\-|\\–|\\~|\\〜)\\s*)' + '(?:' + '(今|明|前|大前|后|大后|昨)(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s,，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?' + ')?' + '(?:[\\s,，]*)' + '(?:(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)(?:\\s*)(?:点|时|:|：)' + '(?:\\s*)' + '(\\d+|半|正|整|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:分|:|：)?' + '(?:\\s*)' + '(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:秒)?)' + '(?:\\s*(A\.M\.|P\.M\.|AM?|PM?))?';
+var patternString1 = '(?:由|从|自)?' + '(?:' + '(今|明|前|大前|后|大后|昨)(?:日|天)?(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s,，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?' + ')?' + '(?:[\\s,，]*)' + '(?:(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)(?:\\s*)(?:点|时|:|：)' + '(?:\\s*)' + '(\\d+|半|正|整|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:分|:|：)?' + '(?:\\s*)' + '(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:秒)?)' + '(?:\\s*(A\.M\.|P\.M\.|AM?|PM?))?';
+var patternString2 = '(?:\\s*(?:到|至|\\-|\\–|\\~|\\〜)\\s*)' + '(?:' + '(今|明|前|大前|后|大后|昨)(?:日|天)?(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s,，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?' + ')?' + '(?:[\\s,，]*)' + '(?:(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)(?:\\s*)(?:点|时|:|：)' + '(?:\\s*)' + '(\\d+|半|正|整|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:分|:|：)?' + '(?:\\s*)' + '(\\d+|[' + Object.keys(util.NUMBER).join('') + ']+)?(?:\\s*)(?:秒)?)' + '(?:\\s*(A\.M\.|P\.M\.|AM?|PM?))?';
 var FIRST_REG_PATTERN = new RegExp(patternString1, 'i');
 var SECOND_REG_PATTERN = new RegExp(patternString2, 'i');
 var DAY_GROUP_1 = 1;
@@ -6330,18 +6330,18 @@ exports.Parser = function ZHHansTimeExpressionParser() {
       if (day1 == '明') {
         // Check not "Tomorrow" on late night
         if (refMoment.hour() > 1) {
-          startMoment.add(1, 'day');
+          startMoment = startMoment.add(1, 'day');
         }
       } else if (day1 == '昨') {
-        startMoment.add(-1, 'day');
+        startMoment = startMoment.add(-1, 'day');
       } else if (day1 == "前") {
-        startMoment.add(-2, 'day');
+        startMoment = startMoment.add(-2, 'day');
       } else if (day1 == "大前") {
-        startMoment.add(-3, 'day');
+        startMoment = startMoment.add(-3, 'day');
       } else if (day1 == "后") {
-        startMoment.add(2, 'day');
+        startMoment = startMoment.add(2, 'day');
       } else if (day1 == "大后") {
-        startMoment.add(3, 'day');
+        startMoment = startMoment.add(3, 'day');
       }
 
       result.start.assign('day', startMoment.date());
@@ -6351,17 +6351,17 @@ exports.Parser = function ZHHansTimeExpressionParser() {
       var day3 = match[DAY_GROUP_3];
 
       if (day3 == '明') {
-        startMoment.add(1, 'day');
+        startMoment = startMoment.add(1, 'day');
       } else if (day3 == '昨') {
-        startMoment.add(-1, 'day');
+        startMoment = startMoment.add(-1, 'day');
       } else if (day3 == "前") {
-        startMoment.add(-2, 'day');
+        startMoment = startMoment.add(-2, 'day');
       } else if (day3 == "大前") {
-        startMoment.add(-3, 'day');
+        startMoment = startMoment.add(-3, 'day');
       } else if (day3 == "后") {
-        startMoment.add(2, 'day');
+        startMoment = startMoment.add(2, 'day');
       } else if (day3 == "大后") {
-        startMoment.add(3, 'day');
+        startMoment = startMoment.add(3, 'day');
       }
 
       result.start.assign('day', startMoment.date());
@@ -6509,18 +6509,18 @@ exports.Parser = function ZHHansTimeExpressionParser() {
       if (day1 == '明') {
         // Check not "Tomorrow" on late night
         if (refMoment.hour() > 1) {
-          endMoment.add(1, 'day');
+          endMoment = endMoment.add(1, 'day');
         }
       } else if (day1 == '昨') {
-        endMoment.add(-1, 'day');
+        endMoment = endMoment.add(-1, 'day');
       } else if (day1 == "前") {
-        endMoment.add(-2, 'day');
+        endMoment = endMoment.add(-2, 'day');
       } else if (day1 == "大前") {
-        endMoment.add(-3, 'day');
+        endMoment = endMoment.add(-3, 'day');
       } else if (day1 == "后") {
-        endMoment.add(2, 'day');
+        endMoment = endMoment.add(2, 'day');
       } else if (day1 == "大后") {
-        endMoment.add(3, 'day');
+        endMoment = endMoment.add(3, 'day');
       }
 
       result.end.assign('day', endMoment.date());
@@ -6530,17 +6530,17 @@ exports.Parser = function ZHHansTimeExpressionParser() {
       var day3 = match[DAY_GROUP_3];
 
       if (day3 == '明') {
-        endMoment.add(1, 'day');
+        endMoment = endMoment.add(1, 'day');
       } else if (day3 == '昨') {
-        endMoment.add(-1, 'day');
+        endMoment = endMoment.add(-1, 'day');
       } else if (day3 == "前") {
-        endMoment.add(-2, 'day');
+        endMoment = endMoment.add(-2, 'day');
       } else if (day3 == "大前") {
-        endMoment.add(-3, 'day');
+        endMoment = endMoment.add(-3, 'day');
       } else if (day3 == "后") {
-        endMoment.add(2, 'day');
+        endMoment = endMoment.add(2, 'day');
       } else if (day3 == "大后") {
-        endMoment.add(3, 'day');
+        endMoment = endMoment.add(3, 'day');
       }
 
       result.end.assign('day', endMoment.date());
@@ -6703,7 +6703,7 @@ var Parser = __webpack_require__(0).Parser;
 
 var ParsedResult = __webpack_require__(1).ParsedResult;
 
-var PATTERN = new RegExp('(立(?:刻|即)|即刻)|' + '(今|明|前|大前|后|大后|昨)(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s|,|，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?', 'i');
+var PATTERN = new RegExp('(立(?:刻|即)|即刻)|' + '(今|明|前|大前|后|大后|昨)(?:日|天)?(早|晚)|' + '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' + '(今|明|前|大前|后|大后|昨)(?:日|天)' + '(?:[\\s|,|，]*)' + '(?:(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨)))?', 'i');
 var NOW_GROUP = 1;
 var DAY_GROUP_1 = 2;
 var TIME_GROUP_1 = 3;
@@ -9737,7 +9737,7 @@ options_zh.casual = function () {
 var options_zhcn = function zhcn(config) {
   return {
     parsers: [new parser["ZHHansDateParser"](config), new parser["ZHHansWeekdayParser"](config), new parser["ZHHansTimeExpressionParser"](config), new parser["ZHHansCasualDateParser"](config), new parser["ZHHansDeadlineFormatParser"](config)],
-    refiners: [new refiner["OverlapRemovalRefiner"](), new refiner["ForwardDateRefiner"]()]
+    refiners: [new refiner["ENMergeDateRangeRefiner"](), new refiner["ENMergeDateTimeRefiner"](), new refiner["OverlapRemovalRefiner"](), new refiner["ForwardDateRefiner"]()]
   };
 };
 

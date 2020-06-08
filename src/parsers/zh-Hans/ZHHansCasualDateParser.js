@@ -4,7 +4,7 @@ var ParsedResult = require('../../result').ParsedResult;
 
 var PATTERN = new RegExp(
     '(立(?:刻|即)|即刻)|' +
-    '(今|明|前|大前|后|大后|昨)(早|晚)|' +
+    '(今|明|前|大前|后|大后|昨)(?:日|天)?(早|晚)|' +
     '(上(?:午)|早(?:上)|下(?:午)|晚(?:上)|夜(?:晚)?|中(?:午)|凌(?:晨))|' +
     '(今|明|前|大前|后|大后|昨)(?:日|天)' +
     '(?:[\\s|,|，]*)' +
@@ -21,11 +21,11 @@ exports.Parser = function ZHHantCasualDateParser() {
 
     Parser.apply(this, arguments);
 
-    this.pattern = function() {
+    this.pattern = function () {
         return PATTERN;
     };
 
-    this.extract = function(text, ref, match, opt) {
+    this.extract = function (text, ref, match, opt) {
         text = match[0];
         var index = match.index;
         var result = new ParsedResult({
@@ -47,19 +47,19 @@ exports.Parser = function ZHHantCasualDateParser() {
             var time1 = match[TIME_GROUP_1];
 
             if (day1 == '明') {
-              // Check not "Tomorrow" on late night
-                if(refMoment.hour() > 1) {
+                // Check not "Tomorrow" on late night
+                if (refMoment.hour() > 1) {
                     startMoment = startMoment.add(1, 'day');
                 }
             } else if (day1 == '昨') {
                 startMoment = startMoment.add(-1, 'day');
-            } else if (day1 == "前"){
+            } else if (day1 == "前") {
                 startMoment = startMoment.add(-2, 'day');
-            } else if (day1 == "大前"){
+            } else if (day1 == "大前") {
                 startMoment = startMoment.add(-3, 'day');
-            } else if ( day1 == "后"){
+            } else if (day1 == "后") {
                 startMoment = startMoment.add(2, 'day');
-            } else if (day1 == "大后"){
+            } else if (day1 == "大后") {
                 startMoment = startMoment.add(3, 'day');
             }
 
@@ -93,18 +93,18 @@ exports.Parser = function ZHHantCasualDateParser() {
 
             if (day3 == '明') {
                 // Check not "Tomorrow" on late night
-                if(refMoment.hour() > 1) {
+                if (refMoment.hour() > 1) {
                     startMoment = startMoment.add(1, 'day');
                 }
             } else if (day3 == '昨') {
                 startMoment = startMoment.add(-1, 'day');
-            } else if (day3 == "前"){
+            } else if (day3 == "前") {
                 startMoment = startMoment.add(-2, 'day');
-            } else if (day3 == "大前"){
+            } else if (day3 == "大前") {
                 startMoment = startMoment.add(-3, 'day');
-            } else if (day3 == "后"){
+            } else if (day3 == "后") {
                 startMoment = startMoment.add(2, 'day');
-            } else if (day3 == "大后"){
+            } else if (day3 == "大后") {
                 startMoment = startMoment.add(3, 'day');
             }
 

@@ -352,6 +352,8 @@ export const zhcn = function zhcn(config) {
             new parser.ZHHansDeadlineFormatParser(config)
         ],
         refiners: [
+            new refiner.ENMergeDateRangeRefiner,
+            new refiner.ENMergeDateTimeRefiner,
             new refiner.OverlapRemovalRefiner(),
             new refiner.ForwardDateRefiner()
         ]
