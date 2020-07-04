@@ -11,7 +11,7 @@ var PATTERN = new RegExp(
     '(?:[\\s|,|，]*)' +
     '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})' +
     '(?:\\s*)' +
-    '(?:月)' +
+    '(?:月)?' +
     '(?:\\s*)' +
     '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})?' +
     '(?:\\s*)' +

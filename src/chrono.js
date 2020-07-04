@@ -97,7 +97,3 @@ export function parse () {
 export function parseDate() {
     return casual.parseDate.apply(casual, arguments);
 }
-
-
-
-
