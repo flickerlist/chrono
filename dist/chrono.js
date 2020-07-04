@@ -5431,7 +5431,7 @@ var ParsedResult = __webpack_require__(1).ParsedResult;
 
 var util = __webpack_require__(5);
 
-var PATTERN = new RegExp('(\\d{2,4}|[' + Object.keys(util.NUMBER).join('') + ']{2,4})?' + '(?:\\s*)' + '(?:年)?' + '(?:[\\s|,|，]*)' + '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})' + '(?:\\s*)' + '(?:月)' + '(?:\\s*)' + '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})?' + '(?:\\s*)' + '(?:日|號)?');
+var PATTERN = new RegExp('(\\d{2,4}|[' + Object.keys(util.NUMBER).join('') + ']{2,4})?' + '(?:\\s*)' + '(?:年)?' + '(?:[\\s|,|，]*)' + '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})' + '(?:\\s*)' + '(?:月)?' + '(?:\\s*)' + '(\\d{1,2}|[' + Object.keys(util.NUMBER).join('') + ']{1,2})?' + '(?:\\s*)' + '(?:日|號)?');
 var YEAR_GROUP = 1;
 var MONTH_GROUP = 2;
 var DAY_GROUP = 3;

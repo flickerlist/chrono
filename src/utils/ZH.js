@@ -43,6 +43,7 @@ exports.zhStringToNumber = function (text) {
       number += NUMBER[char];
     }
   }
+
   return number;
 };
 
