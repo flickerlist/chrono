@@ -6203,11 +6203,25 @@ exports.Parser = function ZHHansDateParser() {
 
     var month = parseInt(match[MONTH_GROUP]);
     if (isNaN(month)) month = util.zhStringToNumber(match[MONTH_GROUP]);
+
+    if (month > 12) {
+      month = 12;
+    } else if (month < 0) {
+      month = 0;
+    }
+
     result.start.assign('month', month); //Day
 
     if (match[DAY_GROUP]) {
       var day = parseInt(match[DAY_GROUP]);
       if (isNaN(day)) day = util.zhStringToNumber(match[DAY_GROUP]);
+
+      if (day < 0) {
+        day = 0;
+      } else if (day > 31) {
+        day = 31;
+      }
+
       result.start.assign('day', day);
     } else {
       result.start.imply('day', startMoment.date());
@@ -6217,6 +6231,11 @@ exports.Parser = function ZHHansDateParser() {
     if (match[YEAR_GROUP]) {
       var year = parseInt(match[YEAR_GROUP]);
       if (isNaN(year)) year = util.zhStringToYear(match[YEAR_GROUP]);
+
+      if (year > 2030) {
+        year = 2030;
+      }
+
       result.start.assign('year', year);
     } else {
       result.start.imply('year', startMoment.year());
